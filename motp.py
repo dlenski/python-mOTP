@@ -28,7 +28,7 @@ codes = [ hashlib.md5(b"%d%s%s" % (counter + ii, secret, pin)).hexdigest()[:args
 
 if args.verbose:
     print("Epoch time: %d" % epoch_time)
-    print("Counter: %d\n" % counter)
+    print("Counter:    %d\n" % counter)
     for ii, code in enumerate(codes, -args.window):
         print("%s%s" % (code, ' (current)' if ii==0 else ''))
 else:

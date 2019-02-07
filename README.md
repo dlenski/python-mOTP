@@ -45,7 +45,7 @@ More verbosely:
 ```
 $ ./motp.py -v SECRET PIN
 Epoch time: 1549323786
-Counter: 154932378
+Counter:    154932378
 
 a1b329 (current)
 ```
