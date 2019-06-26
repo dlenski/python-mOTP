@@ -7,8 +7,12 @@ If you need to generate [one-time passwords](//en.wikipedia.org/wiki/One-time_pa
 using the [Mobile-OTP / mOTP algorithm](http://motp.sourceforge.net/), from the command-line,
 without futzing around with your phone.
 
-This is a confusing and seemingly-almost-obsolete standard(-ish?) algorithm for one-time
-passwords that appears to mainly be used in German-speaking countries.
+This is a self-proclaimed “standard” algorithm for one-time passwords. It is confusing,
+seemingly almost obsolete, and appears to mainly be used in German-speaking countries.
+**You don't want to use this unless you are forced to interact with an existing system
+that uses such codes for 2FA.**
+
+Mobile apps that appear to support it:
 
 * Swiss SafeLab OTP authenticator for iOS: [on iTunes](https://itunes.apple.com/us/app/otp-authenticator/id915359210?mt=8)
 * Swiss SafeLab OTP authenticator for Android: [APK download](https://www.swiss-safelab.com/en-us/products/otpauthenticator.aspx)
@@ -17,7 +21,8 @@ passwords that appears to mainly be used in German-speaking countries.
 How does it work?
 =================
 
-The principle of the algorithm is very simple: you have a token secret
+The principle of the algorithm is [explained badly](http://motp.sourceforge.net/#1.1)
+and [implemented confusingly](http://motp.sourceforge.net/bash/otpverify.sh) but it's very simple: you have a token secret
 (an ASCII string, usually hexadecimal or alphanumeric) and a PIN (an
 ASCII string, usually 4 digits), and this is converted to a 6-digit
 code using:
