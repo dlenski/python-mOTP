@@ -10,7 +10,7 @@
 import argparse, hashlib, time
 
 p = argparse.ArgumentParser()
-p.add_argument('-s', '--seconds', default=30, type=int, help="Duration of mOTP codes in seconds (default %(default)s seconds)")
+p.add_argument('-s', '--seconds', default=10, type=int, help="Duration of mOTP codes in seconds (default %(default)s seconds)")
 p.add_argument('-l', '--length', default=6, type=int, help="Length of mOTP output (default %(default)s characters)")
 p.add_argument('-w', '--window', default=0, type=int, help="Number of counter values before and after current one to show (for testing time-skew)")
 p.add_argument('-v', '--verbose', action='count')
@@ -19,7 +19,7 @@ p.add_argument('pin', help="mOTP PIN value (usually 4 digits)")
 args = p.parse_args()
 
 epoch_time = int(time.time())
-counter = epoch_time // 10
+counter = epoch_time // int(args.seconds)
 secret = args.secret.strip().encode('ascii')
 pin = args.pin.strip().encode('ascii')
 
